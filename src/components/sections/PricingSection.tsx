@@ -19,6 +19,7 @@ const plans = [
     ],
     cta: 'Empezar gratis',
     href: '/register',
+    external: false,
     highlight: false,
   },
   {
@@ -34,8 +35,9 @@ const plans = [
       'Soporte prioritario',
       'Datos históricos 5 años',
     ],
-    cta: 'Empezar prueba gratis',
-    href: '/register?plan=pro',
+    cta: 'Suscribirse',
+    href: process.env.NEXT_PUBLIC_STRIPE_LINK_PRO ?? '/register?plan=pro',
+    external: true,
     highlight: true,
   },
   {
@@ -51,8 +53,9 @@ const plans = [
       'Comisiones automatizadas',
       'API de datos',
     ],
-    cta: 'Contactar ventas',
-    href: '/contact',
+    cta: 'Suscribirse',
+    href: process.env.NEXT_PUBLIC_STRIPE_LINK_BROKER ?? '/register?plan=broker',
+    external: true,
     highlight: false,
   },
 ]
@@ -86,6 +89,7 @@ export default function PricingSection() {
                     Más popular
                   </div>
                 )}
+
                 <div>
                   <h3 className={cn('font-bold text-lg mb-1', plan.highlight ? 'text-white' : 'text-neutral-900')}>
                     {plan.name}
@@ -101,7 +105,7 @@ export default function PricingSection() {
                   </span>
                   {plan.period && (
                     <span className={cn('text-sm', plan.highlight ? 'text-brand-200' : 'text-neutral-500')}>
-                      {plan.period}
+                      {plan.period} MXN
                     </span>
                   )}
                 </div>
@@ -118,21 +122,43 @@ export default function PricingSection() {
                   ))}
                 </ul>
 
-                <Link
-                  href={plan.href}
-                  className={cn(
-                    'w-full inline-flex items-center justify-center py-3 rounded-xl font-semibold text-sm transition-colors',
-                    plan.highlight
-                      ? 'bg-white text-brand-600 hover:bg-brand-50'
-                      : 'bg-brand-600 text-white hover:bg-brand-700'
-                  )}
-                >
-                  {plan.cta}
-                </Link>
+                {plan.external ? (
+                  <a
+                    href={plan.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cn(
+                      'w-full inline-flex items-center justify-center py-3 rounded-xl font-semibold text-sm transition-colors',
+                      plan.highlight
+                        ? 'bg-white text-brand-600 hover:bg-brand-50'
+                        : 'bg-brand-600 text-white hover:bg-brand-700'
+                    )}
+                  >
+                    {plan.cta}
+                  </a>
+                ) : (
+                  <Link
+                    href={plan.href}
+                    className={cn(
+                      'w-full inline-flex items-center justify-center py-3 rounded-xl font-semibold text-sm transition-colors',
+                      plan.highlight
+                        ? 'bg-white text-brand-600 hover:bg-brand-50'
+                        : 'bg-brand-600 text-white hover:bg-brand-700'
+                    )}
+                  >
+                    {plan.cta}
+                  </Link>
+                )}
               </div>
             </StaggerItem>
           ))}
         </StaggerList>
+
+        <FadeInView className="text-center mt-10 text-sm text-neutral-500">
+          Pago seguro procesado por{' '}
+          <span className="font-semibold text-neutral-700">Stripe</span>.
+          Cancela en cualquier momento desde tu panel.
+        </FadeInView>
       </div>
     </section>
   )
