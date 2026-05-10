@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-const BASE = process.env.NEXT_PUBLIC_APP_URL ?? 'https://urbanflow.mx'
+const BASE = process.env.NEXT_PUBLIC_APP_URL ?? 'https://urbanflowai.net'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()

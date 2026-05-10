@@ -11,7 +11,7 @@ const inter = Inter({
   variable: '--font-inter',
 })
 
-const BASE = process.env.NEXT_PUBLIC_APP_URL ?? 'https://urbanflow.mx'
+const BASE = process.env.NEXT_PUBLIC_APP_URL ?? 'https://urbanflowai.net'
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE),

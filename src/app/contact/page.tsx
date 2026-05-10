@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 }
 
 const contactInfo = [
-  { icon: Mail,  label: 'Email',     value: 'hola@urbanflow.mx',        href: 'mailto:hola@urbanflow.mx' },
+  { icon: Mail,  label: 'Email',     value: 'hola@urbanflowai.net',     href: 'mailto:hola@urbanflowai.net' },
   { icon: Phone, label: 'Teléfono',  value: '+52 55 1234 5678',         href: 'tel:+525512345678' },
   { icon: MapPin, label: 'Oficina',  value: 'Ciudad de México, México', href: null },
   { icon: Clock, label: 'Horario',   value: 'Lun–Vie, 9:00–18:00 CST', href: null },
