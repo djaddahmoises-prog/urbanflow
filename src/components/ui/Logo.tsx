@@ -5,32 +5,35 @@ type LogoMarkProps = {
   className?: string
 }
 
-export function LogoMark({ size = 32, className }: LogoMarkProps) {
+export function LogoMark({ size = 40, className }: LogoMarkProps) {
   return (
     <svg
       width={size}
       height={size}
-      viewBox="0 0 48 48"
+      viewBox="0 0 100 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-hidden="true"
     >
-      <rect width="48" height="48" rx="10" fill="#0D1117" />
-      {/* U — two legs + curved bottom */}
+      <rect width="100" height="100" rx="18" fill="#0D1117" />
+
+      {/* U — white thick strokes, rounded */}
       <path
-        d="M6 11 L6 27 C6 36 12 40 19 40 C26 40 32 36 32 27 L32 11"
+        d="M14 14 L14 60 Q14 86 38 86 Q62 86 62 60 L62 14"
         stroke="white"
-        strokeWidth="5"
+        strokeWidth="13"
         strokeLinecap="round"
+        strokeLinejoin="round"
         fill="none"
       />
-      {/* F — vertical */}
-      <line x1="37" y1="11" x2="37" y2="40" stroke="#3D5A8C" strokeWidth="5" strokeLinecap="round" />
-      {/* F — top bar */}
-      <line x1="37" y1="11" x2="46" y2="11" stroke="#3D5A8C" strokeWidth="5" strokeLinecap="round" />
-      {/* F — middle bar orange */}
-      <line x1="37" y1="25" x2="44" y2="25" stroke="#E25500" strokeWidth="5" strokeLinecap="round" />
+
+      {/* F — vertical bar, slate blue */}
+      <line x1="76" y1="14" x2="76" y2="86" stroke="#3D5A8C" strokeWidth="13" strokeLinecap="round" />
+      {/* F — top bar, slate blue */}
+      <line x1="76" y1="14" x2="94" y2="14" stroke="#3D5A8C" strokeWidth="13" strokeLinecap="round" />
+      {/* F — middle bar, Energy Orange */}
+      <line x1="76" y1="50" x2="91" y2="50" stroke="#E25500" strokeWidth="13" strokeLinecap="round" />
     </svg>
   )
 }
@@ -40,15 +43,23 @@ type LogoFullProps = {
   size?: number
 }
 
-export function LogoFull({ className, size = 32 }: LogoFullProps) {
-  const fontSize = Math.round(size * 0.5)
+export function LogoFull({ className, size = 40 }: LogoFullProps) {
   return (
-    <span className={cn('flex items-center gap-2.5', className)}>
+    <span className={cn('flex items-center gap-3', className)}>
       <LogoMark size={size} />
-      <span className="leading-none font-extrabold tracking-tight" style={{ fontSize }}>
-        <span className="text-white">URBAN</span>
-        <span className="text-white">FLOW </span>
-        <span style={{ color: '#E25500' }}>AI</span>
+      <span className="leading-none flex flex-col" style={{ gap: 1 }}>
+        <span
+          className="font-extrabold tracking-widest uppercase"
+          style={{ fontSize: size * 0.38, color: 'white', letterSpacing: '0.12em', lineHeight: 1.1 }}
+        >
+          URBAN FLOW <span style={{ color: '#E25500' }}>AI</span>
+        </span>
+        <span
+          className="font-medium tracking-widest uppercase"
+          style={{ fontSize: size * 0.16, color: '#3D5A8C', letterSpacing: '0.2em', lineHeight: 1 }}
+        >
+          WHERE BUSINESSES BELONG
+        </span>
       </span>
     </span>
   )
