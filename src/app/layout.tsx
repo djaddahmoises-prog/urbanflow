@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import Providers from '@/components/layout/Providers'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -11,7 +12,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'UrbanFlow — Mercado Inmobiliario Inteligente',
+  title: 'UrbanFlow AI — Where Businesses Belong',
   description:
     'Compra, vende y estudia el mercado de metros cuadrados y bienes raíces en México. Datos en tiempo real, brokers certificados y pagos seguros.',
   keywords: ['bienes raíces', 'inmobiliaria', 'renta', 'venta', 'metros cuadrados', 'urbanflow'],
@@ -26,9 +27,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-[var(--bg)] text-[var(--fg)]">
-        <Navbar />
-        <main className="flex-1 pt-16">{children}</main>
-        <Footer />
+        <Providers>
+          <Navbar />
+          <main className="flex-1 pt-16">{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   )

@@ -1,18 +1,30 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand */
-  --color-brand-50:  #f0f4ff;
-  --color-brand-100: #e0eaff;
-  --color-brand-200: #c7d7fe;
-  --color-brand-300: #a5bafd;
-  --color-brand-400: #8194fb;
-  --color-brand-500: #6470f3;
-  --color-brand-600: #4f52e7;
-  --color-brand-700: #4040cc;
-  --color-brand-800: #3535a3;
-  --color-brand-900: #302f81;
-  --color-brand-950: #1e1d4e;
+  /* Brand — navy blue */
+  --color-brand-50:  #f0f5ff;
+  --color-brand-100: #dce8fd;
+  --color-brand-200: #b9d1fb;
+  --color-brand-300: #85aaf4;
+  --color-brand-400: #527ce8;
+  --color-brand-500: #2c58d4;
+  --color-brand-600: #1a3f9e;
+  --color-brand-700: #16348a;
+  --color-brand-800: #0f2466;
+  --color-brand-900: #0a1847;
+  --color-brand-950: #0c1a2e;
+
+  /* Accent — orange */
+  --color-accent-50:  #fff5ed;
+  --color-accent-100: #ffe8d0;
+  --color-accent-200: #ffc99d;
+  --color-accent-300: #ffa066;
+  --color-accent-400: #f87333;
+  --color-accent-500: #e8650a;
+  --color-accent-600: #cc570a;
+  --color-accent-700: #a3420b;
+  --color-accent-800: #7d3210;
+  --color-accent-900: #5c2510;
 
   /* Neutral */
   --color-neutral-0:   #ffffff;
@@ -46,7 +58,7 @@
   --radius-2xl:  1.5rem;
 
   /* Shadows */
-  --shadow-brand: 0 0 0 3px rgb(100 112 243 / 0.3);
+  --shadow-brand: 0 0 0 3px rgb(26 63 158 / 0.3);
 }
 
 :root {

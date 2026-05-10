@@ -19,14 +19,14 @@ export default function HeroSection() {
         aria-hidden="true"
         style={{
           background:
-            'radial-gradient(ellipse 80% 60% at 50% -10%, rgb(100 112 243 / 0.15) 0%, transparent 70%)',
+            'radial-gradient(ellipse 80% 60% at 50% -10%, rgb(26 63 158 / 0.12) 0%, transparent 70%)',
         }}
       />
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
         aria-hidden="true"
         style={{
-          backgroundImage: 'radial-gradient(circle, #6470f3 1px, transparent 1px)',
+          backgroundImage: 'radial-gradient(circle, #1a3f9e 1px, transparent 1px)',
           backgroundSize: '32px 32px',
         }}
       />
