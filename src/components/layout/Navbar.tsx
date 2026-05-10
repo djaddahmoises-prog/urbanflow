@@ -7,9 +7,10 @@ import { Menu, X, MapPin } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const links = [
-  { label: 'Propiedades', href: '/properties' },
+  { label: 'Explorar', href: '/properties' },
+  { label: 'Mercado', href: '/market' },
   { label: 'Precios', href: '/pricing' },
-  { label: 'Brokers', href: '/brokers' },
+  { label: 'Publicar', href: '/publish' },
 ]
 
 export default function Navbar() {
