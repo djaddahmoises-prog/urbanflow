@@ -1,45 +1,36 @@
-import { FadeInView } from '@/components/animations/motion'
 import { BadgeCheck } from 'lucide-react'
 
 const companies = [
-  { name: 'Fibra Uno',         sub: 'FUNO11 · BMV',           initials: 'FU' },
-  { name: 'Fibra Danhos',      sub: 'DANHOS13 · BMV',         initials: 'FD' },
-  { name: 'COLD Logística',    sub: 'Industrial & Cold Chain', initials: 'CL' },
-  { name: 'Grupo Acosta Verde',sub: 'Centros Comerciales',     initials: 'AV' },
-  { name: 'Grupo Ánima',       sub: 'Desarrollo Inmobiliario', initials: 'GA' },
+  { initials: 'FU', name: 'Fibra Uno',      sub: 'FUNO11 · BMV' },
+  { initials: 'FD', name: 'Fibra Danhos',   sub: 'DANHOS13 · BMV' },
+  { initials: 'CL', name: 'COLD Logística', sub: 'Industrial' },
+  { initials: 'AV', name: 'Acosta Verde',   sub: 'Centros Comerciales' },
+  { initials: 'GA', name: 'Grupo Ánima',    sub: 'Desarrollo Inmobiliario' },
 ]
 
 export default function TrustedSection() {
   return (
-    <section className="py-16 px-4 sm:px-6 bg-white border-y border-neutral-100" aria-label="Empresas de confianza">
+    <section className="py-16 px-4 sm:px-6 border-y" style={{ background: '#f9fafb', borderColor: '#E5E7EB' }}>
       <div className="max-w-5xl mx-auto">
-        <FadeInView className="text-center mb-10">
-          <p className="text-xs font-semibold uppercase tracking-widest text-neutral-400 mb-1">
-            Empresas que confían en UrbanFlow AI
-          </p>
-        </FadeInView>
-
-        <FadeInView>
-          <div className="flex flex-wrap justify-center items-center gap-6">
-            {companies.map((c) => (
-              <div
-                key={c.name}
-                className="flex items-center gap-3 px-5 py-3 rounded-2xl border border-neutral-200 bg-neutral-50 hover:border-brand-200 hover:bg-brand-50 transition-colors"
-              >
-                <span className="w-9 h-9 rounded-xl bg-brand-950 text-white text-xs font-bold flex items-center justify-center shrink-0">
-                  {c.initials}
-                </span>
-                <div className="text-left">
-                  <div className="flex items-center gap-1">
-                    <p className="text-sm font-semibold text-neutral-900 leading-none">{c.name}</p>
-                    <BadgeCheck className="w-3.5 h-3.5 text-brand-500 shrink-0" aria-label="Verificado" />
-                  </div>
-                  <p className="text-[11px] text-neutral-400 mt-0.5">{c.sub}</p>
-                </div>
+        <p className="text-center text-xs font-bold uppercase tracking-widest mb-10" style={{ color: '#9ca3af' }}>
+          Empresas que confían en UrbanFlow AI
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-4">
+          {companies.map((c) => (
+            <div key={c.name} className="flex items-center gap-3 px-5 py-3 rounded-xl border bg-white shadow-sm" style={{ borderColor: '#E5E7EB' }}>
+              <div className="w-9 h-9 rounded-lg flex items-center justify-center text-xs font-extrabold text-white shrink-0" style={{ background: '#0D1117' }}>
+                {c.initials}
               </div>
-            ))}
-          </div>
-        </FadeInView>
+              <div>
+                <div className="flex items-center gap-1">
+                  <p className="text-sm font-bold" style={{ color: '#0D1117' }}>{c.name}</p>
+                  <BadgeCheck className="w-3.5 h-3.5" style={{ color: '#E25500' }} aria-label="Verificado" />
+                </div>
+                <p className="text-xs" style={{ color: '#9ca3af' }}>{c.sub}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )
