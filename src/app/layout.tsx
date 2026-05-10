@@ -11,15 +11,43 @@ const inter = Inter({
   variable: '--font-inter',
 })
 
+const BASE = process.env.NEXT_PUBLIC_APP_URL ?? 'https://urbanflow.mx'
+
 export const metadata: Metadata = {
-  title: 'UrbanFlow AI — Where Businesses Belong',
+  metadataBase: new URL(BASE),
+  title: {
+    default: 'UrbanFlow AI — Bienes raíces en México',
+    template: '%s — UrbanFlow AI',
+  },
   description:
-    'Compra, vende y estudia el mercado de metros cuadrados y bienes raíces en México. Datos en tiempo real, brokers certificados y pagos seguros.',
-  keywords: ['bienes raíces', 'inmobiliaria', 'renta', 'venta', 'metros cuadrados', 'urbanflow'],
+    'Compra, vende y estudia el mercado de metros cuadrados y bienes raíces en México. Datos en tiempo real, brokers certificados y pagos seguros con Stripe.',
+  keywords: [
+    'bienes raíces México', 'urbanflow', 'UrbanFlow AI', 'inmobiliaria México',
+    'renta propiedades', 'venta propiedades', 'metros cuadrados', 'brokers inmobiliarios',
+    'inversión inmobiliaria', 'precio m2 México',
+  ],
+  authors: [{ name: 'UrbanFlow AI' }],
+  creator: 'UrbanFlow AI',
   openGraph: {
-    title: 'UrbanFlow',
-    description: 'El mercado inmobiliario más avanzado de México.',
+    siteName: 'UrbanFlow AI',
+    title: 'UrbanFlow AI — El mercado inmobiliario más avanzado de México',
+    description: 'Compra, vende e invierte en bienes raíces con datos en tiempo real.',
     type: 'website',
+    locale: 'es_MX',
+    url: BASE,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'UrbanFlow AI — Bienes raíces en México',
+    description: 'Compra, vende e invierte en bienes raíces con datos en tiempo real.',
+  },
+  alternates: {
+    canonical: BASE,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
   },
 }
 

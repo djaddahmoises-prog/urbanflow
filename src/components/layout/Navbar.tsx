@@ -9,10 +9,11 @@ import { cn } from '@/lib/utils'
 import { LogoFull } from '@/components/ui/Logo'
 
 const links = [
-  { label: 'Explorar', href: '/properties' },
-  { label: 'Mercado', href: '/market' },
-  { label: 'Precios', href: '/pricing' },
-  { label: 'Publicar', href: '/publish' },
+  { label: 'Explorar',  href: '/properties' },
+  { label: 'Mercado',   href: '/market' },
+  { label: 'Brokers',   href: '/brokers' },
+  { label: 'Precios',   href: '/pricing' },
+  { label: 'Publicar',  href: '/publish' },
 ]
 
 export default function Navbar() {
