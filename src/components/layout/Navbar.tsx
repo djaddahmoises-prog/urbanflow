@@ -22,7 +22,7 @@ export default function Navbar() {
   const { user, signOut } = useAuth()
 
   return (
-    <header className="fixed top-0 inset-x-0 z-40 bg-white/80 backdrop-blur-md border-b border-neutral-200">
+    <header className="fixed top-0 inset-x-0 z-40 backdrop-blur-md border-b" style={{ background: 'rgba(13,17,23,0.92)', borderColor: 'rgba(255,255,255,0.08)' }}>
       <nav
         className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between"
         aria-label="Navegación principal"
@@ -38,11 +38,12 @@ export default function Navbar() {
             <li key={l.href}>
               <Link
                 href={l.href}
-                className="relative px-4 py-2 text-sm font-medium text-neutral-600 hover:text-neutral-900 transition-colors group"
+                className="relative px-4 py-2 text-sm font-medium text-white/60 hover:text-white transition-colors group"
               >
                 {l.label}
                 <span
-                  className="absolute inset-x-4 bottom-1 h-px bg-brand-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-[250ms] origin-left"
+                  className="absolute inset-x-4 bottom-1 h-px scale-x-0 group-hover:scale-x-100 transition-transform duration-[250ms] origin-left"
+                  style={{ background: '#E25500' }}
                   aria-hidden="true"
                 />
               </Link>
@@ -57,18 +58,18 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => setAvatarOpen((v) => !v)}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-xl hover:bg-neutral-100 transition-colors"
+                className="flex items-center gap-2 px-3 py-1.5 rounded-xl hover:bg-white/10 transition-colors"
                 aria-label="Menú de usuario"
                 aria-expanded={avatarOpen}
               >
                 {user.photoURL ? (
                   <img src={user.photoURL} alt="" className="w-7 h-7 rounded-full object-cover" aria-hidden="true" />
                 ) : (
-                  <span className="w-7 h-7 rounded-full bg-brand-600 text-white text-xs font-bold flex items-center justify-center" aria-hidden="true">
+                  <span className="w-7 h-7 rounded-full text-white text-xs font-bold flex items-center justify-center" style={{ background: '#E25500' }} aria-hidden="true">
                     {user.displayName?.[0]?.toUpperCase() ?? user.email?.[0]?.toUpperCase() ?? 'U'}
                   </span>
                 )}
-                <span className="text-sm font-medium text-neutral-700 max-w-[120px] truncate">
+                <span className="text-sm font-medium text-white/80 max-w-[120px] truncate">
                   {user.displayName ?? user.email}
                 </span>
               </button>
@@ -106,13 +107,14 @@ export default function Navbar() {
             <>
               <Link
                 href="/login"
-                className="text-sm font-medium text-neutral-600 hover:text-neutral-900 transition-colors"
+                className="text-sm font-medium text-white/60 hover:text-white transition-colors"
               >
                 Iniciar sesión
               </Link>
               <Link
                 href="/register"
-                className="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-semibold rounded-xl bg-brand-600 text-white hover:bg-brand-700 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-semibold rounded-xl text-white transition-colors"
+                style={{ background: '#E25500' }}
               >
                 Empezar gratis
               </Link>

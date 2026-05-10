@@ -10,27 +10,27 @@ export function LogoMark({ size = 32, className }: LogoMarkProps) {
     <svg
       width={size}
       height={size}
-      viewBox="0 0 40 40"
+      viewBox="0 0 48 48"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-hidden="true"
     >
-      <rect width="40" height="40" rx="10" fill="#0c1a2e" />
-      {/* U shape */}
+      <rect width="48" height="48" rx="10" fill="#0D1117" />
+      {/* U — two legs + curved bottom */}
       <path
-        d="M7 10 L7 24 Q7 33 16 33 Q25 33 25 24 L25 10"
+        d="M6 11 L6 27 C6 36 12 40 19 40 C26 40 32 36 32 27 L32 11"
         stroke="white"
-        strokeWidth="4"
+        strokeWidth="5"
         strokeLinecap="round"
         fill="none"
       />
-      {/* F vertical */}
-      <line x1="29" y1="10" x2="29" y2="33" stroke="#1a3f9e" strokeWidth="4" strokeLinecap="round" />
-      {/* F top bar */}
-      <line x1="29" y1="10" x2="37" y2="10" stroke="#1a3f9e" strokeWidth="4" strokeLinecap="round" />
-      {/* F middle bar — orange accent */}
-      <line x1="29" y1="21" x2="36" y2="21" stroke="#e8650a" strokeWidth="4" strokeLinecap="round" />
+      {/* F — vertical */}
+      <line x1="37" y1="11" x2="37" y2="40" stroke="#3D5A8C" strokeWidth="5" strokeLinecap="round" />
+      {/* F — top bar */}
+      <line x1="37" y1="11" x2="46" y2="11" stroke="#3D5A8C" strokeWidth="5" strokeLinecap="round" />
+      {/* F — middle bar orange */}
+      <line x1="37" y1="25" x2="44" y2="25" stroke="#E25500" strokeWidth="5" strokeLinecap="round" />
     </svg>
   )
 }
@@ -41,12 +41,14 @@ type LogoFullProps = {
 }
 
 export function LogoFull({ className, size = 32 }: LogoFullProps) {
+  const fontSize = Math.round(size * 0.5)
   return (
-    <span className={cn('flex items-center gap-2', className)}>
+    <span className={cn('flex items-center gap-2.5', className)}>
       <LogoMark size={size} />
-      <span className="font-extrabold text-lg tracking-tight leading-none">
-        Urban<span style={{ color: '#e8650a' }}>Flow</span>
-        <span className="text-xs font-semibold ml-1 text-neutral-400 align-middle">AI</span>
+      <span className="leading-none font-extrabold tracking-tight" style={{ fontSize }}>
+        <span className="text-white">URBAN</span>
+        <span className="text-white">FLOW </span>
+        <span style={{ color: '#E25500' }}>AI</span>
       </span>
     </span>
   )

@@ -1,44 +1,44 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand — navy blue */
-  --color-brand-50:  #f0f5ff;
-  --color-brand-100: #dce8fd;
-  --color-brand-200: #b9d1fb;
-  --color-brand-300: #85aaf4;
-  --color-brand-400: #527ce8;
-  --color-brand-500: #2c58d4;
-  --color-brand-600: #1a3f9e;
-  --color-brand-700: #16348a;
-  --color-brand-800: #0f2466;
-  --color-brand-900: #0a1847;
-  --color-brand-950: #0c1a2e;
+  /* Brand — Carbon Navy / Deep Navy / Slate Blue (from brand guide) */
+  --color-brand-50:  #f0f4f9;
+  --color-brand-100: #dce6f0;
+  --color-brand-200: #b3c8e0;
+  --color-brand-300: #7da3c8;
+  --color-brand-400: #3D5A8C;
+  --color-brand-500: #3D5A8C;
+  --color-brand-600: #1E293B;
+  --color-brand-700: #1E293B;
+  --color-brand-800: #0D1117;
+  --color-brand-900: #0D1117;
+  --color-brand-950: #0D1117;
 
-  /* Accent — orange */
-  --color-accent-50:  #fff5ed;
-  --color-accent-100: #ffe8d0;
-  --color-accent-200: #ffc99d;
-  --color-accent-300: #ffa066;
-  --color-accent-400: #f87333;
-  --color-accent-500: #e8650a;
-  --color-accent-600: #cc570a;
-  --color-accent-700: #a3420b;
-  --color-accent-800: #7d3210;
-  --color-accent-900: #5c2510;
+  /* Accent — Energy Orange #E25500 */
+  --color-accent-50:  #fff3eb;
+  --color-accent-100: #ffe0c7;
+  --color-accent-200: #ffba8a;
+  --color-accent-300: #ff8f4d;
+  --color-accent-400: #f26820;
+  --color-accent-500: #E25500;
+  --color-accent-600: #c44a00;
+  --color-accent-700: #9e3c00;
+  --color-accent-800: #782d00;
+  --color-accent-900: #552000;
 
   /* Neutral */
   --color-neutral-0:   #ffffff;
-  --color-neutral-50:  #f8fafc;
-  --color-neutral-100: #f1f5f9;
-  --color-neutral-200: #e2e8f0;
-  --color-neutral-300: #cbd5e1;
-  --color-neutral-400: #94a3b8;
-  --color-neutral-500: #64748b;
-  --color-neutral-600: #475569;
-  --color-neutral-700: #334155;
-  --color-neutral-800: #1e293b;
-  --color-neutral-900: #0f172a;
-  --color-neutral-950: #020617;
+  --color-neutral-50:  #f9fafb;
+  --color-neutral-100: #E5E7EB;
+  --color-neutral-200: #d1d5db;
+  --color-neutral-300: #9ca3af;
+  --color-neutral-400: #6b7280;
+  --color-neutral-500: #4b5563;
+  --color-neutral-600: #374151;
+  --color-neutral-700: #1f2937;
+  --color-neutral-800: #1E293B;
+  --color-neutral-900: #0D1117;
+  --color-neutral-950: #0D1117;
 
   /* Semantic */
   --color-success: #22c55e;
@@ -58,23 +58,15 @@
   --radius-2xl:  1.5rem;
 
   /* Shadows */
-  --shadow-brand: 0 0 0 3px rgb(26 63 158 / 0.3);
+  --shadow-brand: 0 0 0 3px rgb(226 85 0 / 0.25);
 }
 
 :root {
   --bg:         #ffffff;
-  --fg:         #0f172a;
-  --bg-subtle:  #f8fafc;
-  --border:     #e2e8f0;
-  --muted:      #64748b;
-}
-
-.dark {
-  --bg:        #0f172a;
-  --fg:        #f8fafc;
-  --bg-subtle: #1e293b;
-  --border:    #334155;
-  --muted:     #94a3b8;
+  --fg:         #0D1117;
+  --bg-subtle:  #f9fafb;
+  --border:     #E5E7EB;
+  --muted:      #6b7280;
 }
 
 * {
@@ -93,17 +85,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Focus ring */
 :focus-visible {
-  outline: 2px solid var(--color-brand-500);
+  outline: 2px solid #E25500;
   outline-offset: 2px;
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--color-neutral-300); border-radius: 9999px; }
-::-webkit-scrollbar-thumb:hover { background: var(--color-neutral-400); }
+::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
 
-/* Map container resets */
 .mapboxgl-map { font-family: inherit !important; }

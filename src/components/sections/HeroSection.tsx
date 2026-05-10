@@ -6,49 +6,48 @@ import { ArrowRight, MapPin, TrendingUp, Shield, Building2, Star } from 'lucide-
 import { FadeInView } from '@/components/animations/motion'
 
 const badges = [
-  { icon: Shield,    label: 'Pagos seguros Stripe' },
-  { icon: MapPin,    label: 'Mapas en tiempo real' },
+  { icon: Shield,     label: 'Pagos seguros Stripe' },
+  { icon: MapPin,     label: 'Mapas en tiempo real' },
   { icon: TrendingUp, label: 'Datos actualizados' },
-]
-
-const floatingCards = [
-  { label: 'Polanco',   price: '$5,200/m²', trend: '+2.8%', pos: 'top-12 left-8' },
-  { label: 'Santa Fe',  price: '$3,640/m²', trend: '+6.1%', pos: 'top-4 right-12' },
-  { label: 'Condesa',   price: '$4,100/m²', trend: '+3.4%', pos: 'bottom-16 right-4' },
 ]
 
 export default function HeroSection() {
   return (
     <section
       className="relative min-h-[92vh] flex flex-col items-center justify-center overflow-hidden px-4 sm:px-6"
-      style={{ background: 'linear-gradient(155deg, #0c1a2e 0%, #1a3f9e 50%, #0c1a2e 100%)' }}
+      style={{ background: 'linear-gradient(150deg, #0D1117 0%, #1E293B 50%, #0D1117 100%)' }}
     >
       {/* Grid texture */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.04]"
         aria-hidden="true"
         style={{
-          backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
+          backgroundImage:
+            'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
           backgroundSize: '48px 48px',
         }}
       />
 
-      {/* Glow orbs */}
+      {/* Glow — blue */}
       <div
-        className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full pointer-events-none"
+        className="absolute top-0 left-1/3 w-[700px] h-[500px] rounded-full pointer-events-none"
         aria-hidden="true"
-        style={{ background: 'radial-gradient(circle, rgb(26 63 158 / 0.5) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle, rgb(61 90 140 / 0.35) 0%, transparent 70%)' }}
       />
+      {/* Glow — orange */}
       <div
         className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full pointer-events-none"
         aria-hidden="true"
-        style={{ background: 'radial-gradient(circle, rgb(232 101 10 / 0.15) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle, rgb(226 85 0 / 0.15) 0%, transparent 70%)' }}
       />
 
       <div className="relative max-w-5xl mx-auto text-center z-10 flex flex-col items-center gap-8">
         <FadeInView delay={0.05}>
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white/90 text-xs font-semibold border border-white/20 backdrop-blur-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent-400 animate-pulse" aria-hidden="true" />
+          <div
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-white/80 text-xs font-semibold border border-white/15"
+            style={{ background: 'rgba(61,90,140,0.25)' }}
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E25500] animate-pulse" aria-hidden="true" />
             Plataforma inmobiliaria #1 en México
           </div>
         </FadeInView>
@@ -57,8 +56,11 @@ export default function HeroSection() {
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white leading-[1.05] tracking-tight">
             El mercado de{' '}
             <span
-              className="relative inline-block"
-              style={{ WebkitTextFillColor: 'transparent', WebkitBackgroundClip: 'text', backgroundImage: 'linear-gradient(90deg, #ffa066, #e8650a)' }}
+              style={{
+                WebkitTextFillColor: 'transparent',
+                WebkitBackgroundClip: 'text',
+                backgroundImage: 'linear-gradient(90deg, #f26820, #E25500)',
+              }}
             >
               bienes raíces
             </span>
@@ -67,7 +69,7 @@ export default function HeroSection() {
         </FadeInView>
 
         <FadeInView delay={0.25}>
-          <p className="max-w-2xl text-lg sm:text-xl text-white/60 leading-relaxed">
+          <p className="max-w-2xl text-lg sm:text-xl text-white/55 leading-relaxed">
             Compra y vende metros cuadrados, accede a estudios de mercado en tiempo real,
             conecta con brokers certificados y gestiona todo desde un solo lugar.
           </p>
@@ -77,15 +79,15 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <Link
               href="/register"
-              className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-bold rounded-xl text-white transition-all"
-              style={{ background: 'linear-gradient(135deg, #e8650a, #f87333)' }}
+              className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-bold rounded-xl text-white transition-all shadow-lg"
+              style={{ background: '#E25500' }}
             >
               Empezar gratis
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
             </Link>
             <Link
               href="/properties"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-semibold rounded-xl border border-white/20 text-white/90 hover:bg-white/10 transition-colors backdrop-blur-sm"
+              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-semibold rounded-xl border border-white/20 text-white/80 hover:bg-white/10 transition-colors"
             >
               Ver propiedades
             </Link>
@@ -95,44 +97,50 @@ export default function HeroSection() {
         <FadeInView delay={0.45}>
           <div className="flex flex-wrap justify-center gap-6 mt-2">
             {badges.map(({ icon: Icon, label }) => (
-              <div key={label} className="flex items-center gap-2 text-sm text-white/50">
-                <Icon className="w-4 h-4 text-accent-400" aria-hidden="true" />
+              <div key={label} className="flex items-center gap-2 text-sm text-white/45">
+                <Icon className="w-4 h-4 text-[#E25500]" aria-hidden="true" />
                 <span>{label}</span>
               </div>
             ))}
           </div>
         </FadeInView>
 
-        {/* Mock dashboard preview */}
+        {/* Mock dashboard */}
         <FadeInView delay={0.55} className="w-full max-w-3xl mt-4">
           <motion.div
-            className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-2xl overflow-hidden"
+            className="relative rounded-2xl overflow-hidden shadow-2xl"
+            style={{ border: '1px solid rgba(255,255,255,0.08)' }}
             whileHover={{ y: -4 }}
             transition={{ type: 'spring', stiffness: 200, damping: 20 }}
           >
-            {/* Window chrome */}
-            <div className="bg-black/40 h-9 flex items-center px-4 gap-2 border-b border-white/10">
+            <div
+              className="h-9 flex items-center px-4 gap-2"
+              style={{ background: 'rgba(0,0,0,0.5)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}
+            >
               {['#ef4444', '#f59e0b', '#22c55e'].map((c) => (
                 <span key={c} className="w-3 h-3 rounded-full" style={{ background: c }} aria-hidden="true" />
               ))}
-              <span className="ml-3 text-xs text-white/30 font-mono">app.urbanflow.mx/properties</span>
+              <span className="ml-3 text-xs text-white/25 font-mono">app.urbanflowai.net/properties</span>
             </div>
 
-            <div className="relative h-72 bg-gradient-to-br from-brand-950 via-brand-900/60 to-brand-950 flex items-center justify-center p-6">
-              {/* Floating stat cards */}
+            <div
+              className="relative h-72 flex items-center justify-center p-6"
+              style={{ background: 'linear-gradient(135deg, #0D1117 0%, #1E293B 100%)' }}
+            >
               <div className="grid grid-cols-3 gap-4 w-full max-w-lg">
                 {[
-                  { label: 'Cdmx Norte', price: '$2,850/m²', trend: '+4.2%', icon: Building2 },
-                  { label: 'Polanco',    price: '$5,200/m²', trend: '+2.8%', icon: Star },
-                  { label: 'Santa Fe',  price: '$3,640/m²', trend: '+6.1%', icon: TrendingUp },
+                  { label: 'Cdmx Norte', price: '$2,850/m²', trend: '+4.2%', Icon: Building2 },
+                  { label: 'Polanco',    price: '$5,200/m²', trend: '+2.8%', Icon: Star },
+                  { label: 'Santa Fe',  price: '$3,640/m²', trend: '+6.1%', Icon: TrendingUp },
                 ].map((item) => (
                   <div
                     key={item.label}
-                    className="bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/10 text-left"
+                    className="rounded-xl p-3 text-left"
+                    style={{ background: 'rgba(61,90,140,0.2)', border: '1px solid rgba(61,90,140,0.3)' }}
                   >
-                    <p className="text-xs text-white/50 mb-1">{item.label}</p>
+                    <p className="text-xs text-white/45 mb-1">{item.label}</p>
                     <p className="text-sm font-bold text-white">{item.price}</p>
-                    <p className="text-xs text-accent-400 font-semibold">{item.trend}</p>
+                    <p className="text-xs font-semibold" style={{ color: '#E25500' }}>{item.trend}</p>
                   </div>
                 ))}
               </div>
