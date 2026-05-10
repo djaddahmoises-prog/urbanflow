@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import { Menu, X, LogOut, LayoutDashboard } from 'lucide-react'
-import { useSession, signOut } from 'next-auth/react'
+import { useAuth } from '@/lib/auth-context'
 import { cn } from '@/lib/utils'
 import { LogoFull } from '@/components/ui/Logo'
 
@@ -18,8 +18,7 @@ const links = [
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [avatarOpen, setAvatarOpen] = useState(false)
-  const { data: session } = useSession()
-  const user = session?.user
+  const { user, signOut } = useAuth()
 
   return (
     <header className="fixed top-0 inset-x-0 z-40 bg-white/80 backdrop-blur-md border-b border-neutral-200">
@@ -61,14 +60,16 @@ export default function Navbar() {
                 aria-label="Menú de usuario"
                 aria-expanded={avatarOpen}
               >
-                {user.image ? (
-                  <img src={user.image} alt="" className="w-7 h-7 rounded-full object-cover" aria-hidden="true" />
+                {user.photoURL ? (
+                  <img src={user.photoURL} alt="" className="w-7 h-7 rounded-full object-cover" aria-hidden="true" />
                 ) : (
                   <span className="w-7 h-7 rounded-full bg-brand-600 text-white text-xs font-bold flex items-center justify-center" aria-hidden="true">
-                    {user.name?.[0]?.toUpperCase() ?? 'U'}
+                    {user.displayName?.[0]?.toUpperCase() ?? user.email?.[0]?.toUpperCase() ?? 'U'}
                   </span>
                 )}
-                <span className="text-sm font-medium text-neutral-700 max-w-[120px] truncate">{user.name}</span>
+                <span className="text-sm font-medium text-neutral-700 max-w-[120px] truncate">
+                  {user.displayName ?? user.email}
+                </span>
               </button>
 
               <AnimatePresence>
@@ -90,7 +91,7 @@ export default function Navbar() {
                     </Link>
                     <button
                       type="button"
-                      onClick={() => signOut({ callbackUrl: '/' })}
+                      onClick={() => signOut()}
                       className="w-full flex items-center gap-2 px-4 py-3 text-sm text-red-600 hover:bg-red-50 transition-colors border-t border-neutral-100"
                     >
                       <LogOut className="w-4 h-4" aria-hidden="true" />
@@ -166,7 +167,7 @@ export default function Navbar() {
                     </Link>
                     <button
                       type="button"
-                      onClick={() => signOut({ callbackUrl: '/' })}
+                      onClick={() => signOut()}
                       className="block text-center px-3 py-2.5 text-sm font-semibold text-red-600 hover:bg-red-50 rounded-lg transition-colors"
                     >
                       Cerrar sesión
